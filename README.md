@@ -1,5 +1,6 @@
 # FaceId
-Funcionalidade para logar com FaceId ou ThouchId
+Funcionalidade para logar com FaceId ou ThouchId.
+
 Para o primeiro acesso e armazenamento dos dados o usuário precisa entrar com email e senha, 
 para os próximos acessos no mesmo dispositivo é possível logar com faceid.
 O título do botão é alterado após reconhecimento da tecnologia(face ou touch) utilizada pelo dispositovo.
