@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var emailTextFields: UITextField!
     @IBOutlet weak var passwordTextFields: UITextField!
-    @IBOutlet weak var btnLoginWhitFaceIdExit: UIButton!
+    @IBOutlet weak var btnLoginWhitFaceId: UIButton!
+    @IBOutlet weak var btnChangeAccount: UIButton!
     
     var userdefaults = UserDefaults.standard
     var context = LAContext()
@@ -20,19 +21,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkSavedUser()
+    }
+    
+    func checkSavedUser() {
         if (userdefaults.value(forKey: "email") != nil) &&
             (userdefaults.value(forKey: "pwd") != nil) {
-            btnLoginWhitFaceIdExit.isHidden = false
+            btnLoginWhitFaceId.isHidden = false
+            btnChangeAccount.isHidden = false
             self.emailTextFields.isEnabled = false
             emailTextFields.text = self.userdefaults.value(forKey: "email") as? String
-            
         }
         else {
-            btnLoginWhitFaceIdExit.isHidden = true
+            btnLoginWhitFaceId.isHidden = true
+            btnChangeAccount.isHidden = true
         }
     }
     
-    @IBAction func btnLoginTapped(_ sender: Any) {
+    @IBAction func btnLoginAction(_ sender: Any) {
         if !(emailTextFields.text!.isEmpty) && !(passwordTextFields.text!.isEmpty) {
             userdefaults.set(emailTextFields.text, forKey: "email")
             userdefaults.set(passwordTextFields.text, forKey: "pwd")
@@ -43,16 +49,15 @@ class ViewController: UIViewController {
     
     @IBAction func btnLoginWithFaceId(_ sender: Any) {
         let localString = "Autenticação Biométrica"
-        if
-            context.canEvaluatePolicy(LAPolicy
+        if context.canEvaluatePolicy(LAPolicy
                                         .deviceOwnerAuthenticationWithBiometrics, error: &err) {
             if context.biometryType == .faceID {
                 print("Face id biometrics")
-                btnLoginWhitFaceIdExit.setTitle("Login com FaceId", for: .normal)
+                btnLoginWhitFaceId.setTitle("Login com FaceId", for: .normal)
             }
             else if context.biometryType == .touchID {
                 print("Touch id biometrics")
-                btnLoginWhitFaceIdExit.setTitle("Login com TouchId", for: .normal)
+                btnLoginWhitFaceId.setTitle("Login com TouchId", for: .normal)
             }
             else {
                 print("No Biometrics")
@@ -73,5 +78,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func btnChangeAccountAction(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "pwd")
+        emailTextFields.text = ""
+        self.emailTextFields.isEnabled = true
+        checkSavedUser()
+    }
 }
 
