@@ -1,5 +1,5 @@
 # FaceId
-MVP com a Funcionalidade de logar com FaceId ou ThouchId.
+MVP com a Funcionalidade de logar com FaceId ou TouchId.
 
 Para o primeiro acesso e armazenamento dos dados o usuário precisa entrar com email e senha, 
 para os próximos acessos no mesmo dispositivo é possível logar com faceid.
