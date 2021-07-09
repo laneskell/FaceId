@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +38,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4uE-1u-UOw"/>
+                                    <action selector="btnLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4uE-1u-UOw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9t-4M-BG0">
@@ -54,12 +55,24 @@
                                     <action selector="btnLoginWithFaceId:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFZ-i5-gRO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBq-ry-u7D">
+                                <rect key="frame" x="20" y="422" width="374" height="22"/>
+                                <state key="normal" title=" Trocar conta." image="arrow.left.arrow.right.circle" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnChangeAccountAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Azz-VQ-mUM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bvd-VH-xNn" secondAttribute="trailing" constant="20" id="0Nv-x1-kS5"/>
                             <constraint firstItem="obk-FT-aIU" firstAttribute="top" secondItem="9pZ-IP-8fy" secondAttribute="bottom" constant="30" id="157-lq-uyk"/>
+                            <constraint firstItem="OBq-ry-u7D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5WY-ui-YjI"/>
+                            <constraint firstItem="OBq-ry-u7D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7D0-RI-VSP"/>
+                            <constraint firstItem="OBq-ry-u7D" firstAttribute="top" secondItem="R9t-4M-BG0" secondAttribute="bottom" constant="40" id="9mI-T4-Mc5"/>
                             <constraint firstItem="obk-FT-aIU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LKn-7Q-7fM"/>
                             <constraint firstItem="9pZ-IP-8fy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Tgd-gw-qKf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R9t-4M-BG0" secondAttribute="trailing" constant="20" id="ZOn-5Y-Kah"/>
@@ -68,12 +81,14 @@
                             <constraint firstItem="R9t-4M-BG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qL4-Ng-jMX"/>
                             <constraint firstItem="Bvd-VH-xNn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qaX-dd-qOR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9pZ-IP-8fy" secondAttribute="trailing" constant="20" id="qbp-3d-2PD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OBq-ry-u7D" secondAttribute="trailing" constant="20" id="vp9-pk-lNg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="obk-FT-aIU" secondAttribute="trailing" constant="20" id="wZZ-7c-a6r"/>
                             <constraint firstItem="9pZ-IP-8fy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y81-sH-qAM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnLoginWhitFaceIdExit" destination="R9t-4M-BG0" id="bPd-zM-Noe"/>
+                        <outlet property="btnChangeAccount" destination="OBq-ry-u7D" id="7Tf-RU-HNw"/>
+                        <outlet property="btnLoginWhitFaceId" destination="R9t-4M-BG0" id="bPd-zM-Noe"/>
                         <outlet property="emailTextFields" destination="9pZ-IP-8fy" id="gxH-zv-hkH"/>
                         <outlet property="passwordTextFields" destination="obk-FT-aIU" id="FDZ-mN-dHN"/>
                     </connections>
@@ -111,6 +126,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left.arrow.right.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
