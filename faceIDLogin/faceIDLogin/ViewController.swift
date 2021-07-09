@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         if (userdefaults.value(forKey: "email") != nil) &&
             (userdefaults.value(forKey: "pwd") != nil) {
             btnLoginWhitFaceIdExit.isHidden = false
+            self.emailTextFields.isEnabled = false
+            emailTextFields.text = self.userdefaults.value(forKey: "email") as? String
+            
         }
         else {
             btnLoginWhitFaceIdExit.isHidden = true
@@ -49,7 +52,7 @@ class ViewController: UIViewController {
             }
             else if context.biometryType == .touchID {
                 print("Touch id biometrics")
-                btnLoginWhitFaceIdExit.setTitle("Login com ThouchId", for: .normal)
+                btnLoginWhitFaceIdExit.setTitle("Login com TouchId", for: .normal)
             }
             else {
                 print("No Biometrics")
