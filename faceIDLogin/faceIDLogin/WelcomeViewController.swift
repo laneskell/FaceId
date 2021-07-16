@@ -15,6 +15,15 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func btnLogout(_ sender: Any) {
+        DispatchQueue.main.async {
+            let backViewController =  self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            self.present(backViewController, animated: true, completion: nil)
+        }
+
+    }
+    }
+    
 
 
-}
+

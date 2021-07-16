@@ -90,17 +90,6 @@ class ViewController: UIViewController {
         logoutUser()
     }
     
-
-    
-    @IBAction func btnLogout(_ sender: Any) {
-        print("pq nao entra")
-        DispatchQueue.main.async {
-            print("entrou")
-            let backViewController =  self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(backViewController, animated: true, completion: nil)
-        }
-        logoutUser()
-    }
     
     
 
