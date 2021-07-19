@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnLoginWhitFaceId: UIButton!
     @IBOutlet weak var btnChangeAccount: UIButton!
     
+    
     var userdefaults = UserDefaults.standard
     var context = LAContext()
     var err : NSError?
@@ -77,13 +78,20 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func btnChangeAccountAction(_ sender: Any) {
+    func logoutUser() {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "pwd")
         emailTextFields.text = ""
         self.emailTextFields.isEnabled = true
         checkSavedUser()
     }
+
+    @IBAction func btnChangeAccountAction(_ sender: Any) {
+        logoutUser()
+    }
+    
+    
+    
+
 }
 

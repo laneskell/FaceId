@@ -16,6 +16,7 @@
 		8EE931F22696126800A5A8DE /* faceIDLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE931F12696126800A5A8DE /* faceIDLoginTests.swift */; };
 		8EE931FD2696126800A5A8DE /* faceIDLoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE931FC2696126800A5A8DE /* faceIDLoginUITests.swift */; };
 		8EE9320B2696187F00A5A8DE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE9320A2696187F00A5A8DE /* WelcomeViewController.swift */; };
+		8EE9320E2698B7CE00A5A8DE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8EE9320D2698B7CE00A5A8DE /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8EE931FC2696126800A5A8DE /* faceIDLoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = faceIDLoginUITests.swift; sourceTree = "<group>"; };
 		8EE931FE2696126800A5A8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EE9320A2696187F00A5A8DE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8EE9320D2698B7CE00A5A8DE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				8EE931E32696126700A5A8DE /* Assets.xcassets */,
 				8EE931E52696126700A5A8DE /* LaunchScreen.storyboard */,
 				8EE931E82696126700A5A8DE /* Info.plist */,
+				8EE9320D2698B7CE00A5A8DE /* .gitignore */,
 			);
 			path = faceIDLogin;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE9320E2698B7CE00A5A8DE /* .gitignore in Resources */,
 				8EE931E72696126700A5A8DE /* LaunchScreen.storyboard in Resources */,
 				8EE931E42696126700A5A8DE /* Assets.xcassets in Resources */,
 				8EE931E22696126600A5A8DE /* Main.storyboard in Resources */,

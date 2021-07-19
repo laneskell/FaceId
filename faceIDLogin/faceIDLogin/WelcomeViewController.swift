@@ -15,6 +15,14 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func btnLogout(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "pwd")
+    }
+    }
+    
 
 
-}
+

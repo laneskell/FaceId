@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="faceIDLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="faceIDLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +25,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obk-FT-aIU">
                                 <rect key="frame" x="20" y="208" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvd-VH-xNn">
                                 <rect key="frame" x="20" y="272" width="374" height="40"/>
@@ -111,18 +111,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuC-WR-zf3">
+                                <rect key="frame" x="314" y="64" width="80" height="50"/>
+                                <color key="backgroundColor" red="0.82902474950000005" green="0.36410584740000002" blue="0.39202008929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="3Zr-WM-Tnh"/>
+                                    <constraint firstAttribute="height" constant="50" id="Bsj-lh-xkO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogout:" destination="0CJ-69-m2b" eventType="touchUpInside" id="uV0-Uy-71Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RSi-Db-Asx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XuC-WR-zf3" firstAttribute="top" secondItem="RSi-Db-Asx" secondAttribute="top" constant="20" id="3ZD-z1-1DT"/>
                             <constraint firstItem="mh2-4n-qKr" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="R8A-e6-bJR"/>
                             <constraint firstItem="mh2-4n-qKr" firstAttribute="centerY" secondItem="Fgw-aR-pAX" secondAttribute="centerY" id="RNi-Qu-R03"/>
+                            <constraint firstItem="RSi-Db-Asx" firstAttribute="trailing" secondItem="XuC-WR-zf3" secondAttribute="trailing" constant="20" id="UI3-U5-d13"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqi-C9-u7F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="75"/>
+            <point key="canvasLocation" x="786.95652173913049" y="75"/>
         </scene>
     </scenes>
     <resources>
