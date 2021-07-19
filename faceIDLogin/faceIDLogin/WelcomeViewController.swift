@@ -16,11 +16,10 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func btnLogout(_ sender: Any) {
-        DispatchQueue.main.async {
-            let backViewController =  self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            self.present(backViewController, animated: true, completion: nil)
-        }
-
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "pwd")
     }
     }
     
