@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="faceIDLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="faceIDLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem Vindo!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mh2-4n-qKr">
-                                <rect key="frame" x="128" y="430" width="158" height="36"/>
+                                <rect key="frame" x="128" y="161" width="158" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -126,16 +126,57 @@
                                     <action selector="btnLogout:" destination="0CJ-69-m2b" eventType="touchUpInside" id="uV0-Uy-71Z"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-Ff-54M">
+                                <rect key="frame" x="20" y="423" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XQ5-FY-Ldy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digite um texto:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6K-1V-6zv">
+                                <rect key="frame" x="147" y="392" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você digitou 0 caracteres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb1-Wz-uXZ">
+                                <rect key="frame" x="109.5" y="483" width="195" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfU-PF-Jc2">
+                                <rect key="frame" x="184" y="557" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="botaoTeste:" destination="0CJ-69-m2b" eventType="touchUpInside" id="rqT-Bs-iFi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RSi-Db-Asx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XuC-WR-zf3" firstAttribute="top" secondItem="RSi-Db-Asx" secondAttribute="top" constant="20" id="3ZD-z1-1DT"/>
-                            <constraint firstItem="mh2-4n-qKr" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="R8A-e6-bJR"/>
-                            <constraint firstItem="mh2-4n-qKr" firstAttribute="centerY" secondItem="Fgw-aR-pAX" secondAttribute="centerY" id="RNi-Qu-R03"/>
+                            <constraint firstItem="RSi-Db-Asx" firstAttribute="trailing" secondItem="qgi-Ff-54M" secondAttribute="trailing" constant="20" id="4Oe-LU-GQi"/>
+                            <constraint firstItem="sb1-Wz-uXZ" firstAttribute="top" secondItem="qgi-Ff-54M" secondAttribute="bottom" constant="10" id="4qR-uR-UPI"/>
+                            <constraint firstItem="mh2-4n-qKr" firstAttribute="top" secondItem="RSi-Db-Asx" secondAttribute="top" constant="117" id="Cmd-0w-LIF"/>
+                            <constraint firstItem="qgi-Ff-54M" firstAttribute="leading" secondItem="RSi-Db-Asx" secondAttribute="leading" constant="20" id="HE3-Nv-3XE"/>
+                            <constraint firstItem="sb1-Wz-uXZ" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="Tfy-At-pAY"/>
                             <constraint firstItem="RSi-Db-Asx" firstAttribute="trailing" secondItem="XuC-WR-zf3" secondAttribute="trailing" constant="20" id="UI3-U5-d13"/>
+                            <constraint firstItem="qgi-Ff-54M" firstAttribute="centerY" secondItem="Fgw-aR-pAX" secondAttribute="centerY" id="cgS-I1-bDF"/>
+                            <constraint firstItem="qgi-Ff-54M" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="egH-pg-6TS"/>
+                            <constraint firstItem="XfU-PF-Jc2" firstAttribute="top" secondItem="sb1-Wz-uXZ" secondAttribute="bottom" constant="53" id="ipS-zR-jkW"/>
+                            <constraint firstItem="mh2-4n-qKr" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="qjq-hs-Hey"/>
+                            <constraint firstItem="XfU-PF-Jc2" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="w55-dt-dCG"/>
+                            <constraint firstItem="qgi-Ff-54M" firstAttribute="top" secondItem="C6K-1V-6zv" secondAttribute="bottom" constant="10" id="xJS-1O-klY"/>
+                            <constraint firstItem="C6K-1V-6zv" firstAttribute="centerX" secondItem="Fgw-aR-pAX" secondAttribute="centerX" id="yUr-VU-AxV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelTypedTextResponse" destination="sb1-Wz-uXZ" id="bb6-fQ-4cC"/>
+                        <outlet property="textFieldTypedText" destination="qgi-Ff-54M" id="uq4-lj-gaU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqi-C9-u7F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

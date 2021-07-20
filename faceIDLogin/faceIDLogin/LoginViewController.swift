@@ -8,7 +8,7 @@
 import UIKit
 import LocalAuthentication
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextFields: UITextField!
     @IBOutlet weak var passwordTextFields: UITextField!
@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkSavedUser()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     func checkSavedUser() {
@@ -44,6 +47,7 @@ class ViewController: UIViewController {
             userdefaults.set(emailTextFields.text, forKey: "email")
             userdefaults.set(passwordTextFields.text, forKey: "pwd")
             let vc =  storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            vc.parentVC = self
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -72,16 +76,19 @@ class ViewController: UIViewController {
                         print("email=\(email) pwd =\(pwd)")
                         
                         let vc =  self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                        vc.parentVC = self
                         self.present(vc, animated: true, completion: nil)
                     }
                 }
             }
         }
     }
+    
     func logoutUser() {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "pwd")
         emailTextFields.text = ""
+        passwordTextFields.text = ""
         self.emailTextFields.isEnabled = true
         checkSavedUser()
     }
