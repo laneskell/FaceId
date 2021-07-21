@@ -7,6 +7,7 @@
 
 import UIKit
 import LocalAuthentication
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -14,8 +15,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextFields: UITextField!
     @IBOutlet weak var btnLoginWhitFaceId: UIButton!
     @IBOutlet weak var btnChangeAccount: UIButton!
+    @IBOutlet weak var btnGoToSignup: UIButton!
     
-    
+    var auth:Auth?
     var userdefaults = UserDefaults.standard
     var context = LAContext()
     var err : NSError?
@@ -23,6 +25,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkSavedUser()
+        self.auth = Auth.auth()
     }
     override func viewWillAppear(_ animated: Bool) {
         
@@ -33,23 +36,45 @@ class LoginViewController: UIViewController {
             (userdefaults.value(forKey: "pwd") != nil) {
             btnLoginWhitFaceId.isHidden = false
             btnChangeAccount.isHidden = false
+            btnGoToSignup.isHidden = true
             self.emailTextFields.isEnabled = false
             emailTextFields.text = self.userdefaults.value(forKey: "email") as? String
         }
         else {
             btnLoginWhitFaceId.isHidden = true
             btnChangeAccount.isHidden = true
+            btnGoToSignup.isHidden = false
         }
     }
     
     @IBAction func btnLoginAction(_ sender: Any) {
-        if !(emailTextFields.text!.isEmpty) && !(passwordTextFields.text!.isEmpty) {
-            userdefaults.set(emailTextFields.text, forKey: "email")
-            userdefaults.set(passwordTextFields.text, forKey: "pwd")
-            let vc =  storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-            vc.parentVC = self
-            self.present(vc, animated: true, completion: nil)
-        }
+        let email:String = self.emailTextFields.text ?? ""
+        let password:String = self.passwordTextFields.text ?? ""
+        
+        self.auth?.signIn(withEmail: email, password: password, completion: { (usuario, error) in
+            if error != nil {
+                print("Dados incorretos, tente novamente")
+            } else {
+                if usuario == nil {
+                    print("Error! Usuário não encontrado")
+                } else {
+                    print("Sucesso no Login!!!")
+                    self.userdefaults.set(email, forKey: "email")
+                    self.userdefaults.set(password, forKey: "pwd")
+                    let vc =  self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                    vc.parentVC = self
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+        })
+        
+//        if !(emailTextFields.text!.isEmpty) && !(passwordTextFields.text!.isEmpty) {
+//            userdefaults.set(emailTextFields.text, forKey: "email")
+//            userdefaults.set(passwordTextFields.text, forKey: "pwd")
+//            let vc =  storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+//            vc.parentVC = self
+//            self.present(vc, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func btnLoginWithFaceId(_ sender: Any) {
@@ -69,12 +94,7 @@ class LoginViewController: UIViewController {
             }
             context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: localString) { (success, error ) in
                 if success {
-                    let email = self.userdefaults.value(forKey: "email") as! String
-                    let pwd = self.userdefaults.value(forKey: "pwd") as! String
-                    
                     DispatchQueue.main.async {
-                        print("email=\(email) pwd =\(pwd)")
-                        
                         let vc =  self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
                         vc.parentVC = self
                         self.present(vc, animated: true, completion: nil)

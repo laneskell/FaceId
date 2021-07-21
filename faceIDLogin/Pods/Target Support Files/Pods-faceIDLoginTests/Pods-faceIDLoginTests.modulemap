@@ -1,0 +1,6 @@
+framework module Pods_faceIDLoginTests {
+  umbrella header "Pods-faceIDLoginTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
