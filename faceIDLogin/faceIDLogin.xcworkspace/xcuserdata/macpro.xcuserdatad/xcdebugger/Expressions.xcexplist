@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "WelcomeViewController.textField(_:shouldChangeCharactersIn:replacementString:):WelcomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textFieldTypedText.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
