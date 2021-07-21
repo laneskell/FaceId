@@ -28,6 +28,13 @@ class LoginViewController: UIViewController {
         self.auth = Auth.auth()
     }
     
+    func alert(title:String, message:String) {
+        let alertController:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok:UIAlertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func checkSavedUser() {
         if (userdefaults.value(forKey: "email") != nil) &&
             (userdefaults.value(forKey: "pwd") != nil) {
@@ -50,12 +57,11 @@ class LoginViewController: UIViewController {
         
         self.auth?.signIn(withEmail: email, password: password, completion: { (usuario, error) in
             if error != nil {
-                print("Dados incorretos, tente novamente")
+                self.alert(title: "Atenção", message: "Dados incorretos, tente novamente")
             } else {
                 if usuario == nil {
-                    print("Error! Usuário não encontrado")
+                    self.alert(title: "ERROR", message: "Usuário não encontrado")
                 } else {
-                    print("Sucesso no Login!!!")
                     self.userdefaults.set(email, forKey: "email")
                     self.userdefaults.set(password, forKey: "pwd")
                     let vc =  self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
