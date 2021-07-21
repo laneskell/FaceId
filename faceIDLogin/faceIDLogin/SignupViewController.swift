@@ -14,12 +14,11 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var textFieldPasswordSignup: UITextField!
     
     var auth:Auth?
+    var userdefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.auth = Auth.auth()
-
-      
     }
     
     @IBAction func btnSignup(_ sender: Any) {
@@ -31,6 +30,10 @@ class SignupViewController: UIViewController {
                 print("Falha no cadastro!")
             } else {
                 print("Sucesso no cadastro")
+                self.userdefaults.set(email, forKey: "email")
+                self.userdefaults.set(password, forKey: "pwd")
+                let vc =  self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                self.present(vc, animated: true, completion: nil)
             }
         })
     }

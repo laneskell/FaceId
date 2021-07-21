@@ -27,9 +27,6 @@ class LoginViewController: UIViewController {
         checkSavedUser()
         self.auth = Auth.auth()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
     
     func checkSavedUser() {
         if (userdefaults.value(forKey: "email") != nil) &&
@@ -67,14 +64,6 @@ class LoginViewController: UIViewController {
                 }
             }
         })
-        
-//        if !(emailTextFields.text!.isEmpty) && !(passwordTextFields.text!.isEmpty) {
-//            userdefaults.set(emailTextFields.text, forKey: "email")
-//            userdefaults.set(passwordTextFields.text, forKey: "pwd")
-//            let vc =  storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-//            vc.parentVC = self
-//            self.present(vc, animated: true, completion: nil)
-//        }
     }
     
     @IBAction func btnLoginWithFaceId(_ sender: Any) {

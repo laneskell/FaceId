@@ -11,7 +11,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textFieldTypedText: UITextField!
     @IBOutlet weak var labelTypedTextResponse: UILabel!
-    
     @IBOutlet weak var txt1: UITextField!
     
     var parentVC: LoginViewController?
