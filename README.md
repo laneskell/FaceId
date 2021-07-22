@@ -9,7 +9,7 @@ ao clicar no botão trocar usuário os dados são apagados e os campos para logi
 ______
 MVP with the functionality to login with FaceId or TouchId and authenticated in firebase.
 
-For the first access and data storage, the user needs to register an email and password, for the next accesses on the same device, it is possible to log in with faceid/touchid. The button title is changed after recognition of the technology (face or touch) used by the device. The user's email is saved in the input field, and the field is disabled. by clicking on the change user button, the data is deleted and the fields for manual login are re-enabled.
+For the first access and data storage, the user needs to register an email and password, for the next access on the same device, it is possible to log in with faceid/touchid. The button title is changed after recognition of the technology (face or touch) used by the device. The user's email is saved in the input field, and the field is disabled. by clicking on the change user button, the data is deleted and the fields for manual login are re-enabled.
 ______
 
 ![image](https://user-images.githubusercontent.com/77758983/126509847-28ccdfa5-8ae3-44f9-b234-fbc618f69b72.png)
